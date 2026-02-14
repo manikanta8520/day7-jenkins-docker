@@ -2,9 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+
+        stage('Build Image') {
             steps {
-                echo 'Building...'
+                sh 'docker build -t manikanta1228/day7-app .'
+            }
+        }
+
+        stage('Push Image') {
+            steps {
+                sh 'docker push manikanta1228/day7-app'
             }
         }
     }
